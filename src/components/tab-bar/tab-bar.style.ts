@@ -1,6 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, ViewStyle } from "react-native";
 
-const styles = StyleSheet.create({
+type Styles = {
+  container: ViewStyle;
+};
+
+const styles = StyleSheet.create<Styles>({
   container: {
     height: 83,
     borderTopRightRadius: 20,
@@ -9,4 +13,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
+
 export default styles;

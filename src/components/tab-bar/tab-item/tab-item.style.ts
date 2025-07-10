@@ -1,6 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, ViewStyle, TextStyle } from "react-native";
 
-const styles = StyleSheet.create({
+type Styles = {
+  container: ViewStyle;
+  label: TextStyle;
+  labelHighlight: TextStyle;
+};
+
+const styles = StyleSheet.create<Styles>({
   container: {
     flex: 1,
     justifyContent: "center",
@@ -14,4 +20,5 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
 });
+
 export default styles;
