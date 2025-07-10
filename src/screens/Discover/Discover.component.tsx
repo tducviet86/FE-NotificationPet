@@ -1,8 +1,11 @@
-import React from 'react'
+import React from "react";
+import { Text, View } from "react-native";
 
- const DiscoverPage = () => {
+const DiscoverPage = () => {
   return (
-    <div>DiscoverPage</div>
-  )
- }
- export default DiscoverPage
+    <View>
+      <Text>DiscoverPage</Text>
+    </View>
+  );
+};
+export default DiscoverPage;

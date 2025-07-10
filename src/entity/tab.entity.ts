@@ -8,3 +8,10 @@ export interface TabEntity {
   icon: keyof typeof Ionicons.glyphMap;
   selected: boolean;
 }
+
+// mở rộng option để có icon
+export interface TabBarOptionsWithIcon {
+  tabBarLabel?: string;
+  title?: string;
+  icon: keyof typeof Ionicons.glyphMap;
+}

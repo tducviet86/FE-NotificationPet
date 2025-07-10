@@ -16,9 +16,9 @@ const Stack = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
 const App = () => (
-  <Provider>
+  // <Provider>
     <ProtectedStack />
-  </Provider>
+  // </Provider>
 );
 const ProtectedStack = () => (
   <NavigationContainer>
@@ -39,24 +39,24 @@ const HomeStack = () => {
         options={{ tabBarLabel: "Home", icon: "home-outline" }}
       />
       <BottomTab.Screen
-        name="ShopStack"
+        name="discover"
         component={DiscoverPage}
-        options={{ tabBarLabel: "Shop", icon: "cart-outline" }}
+        options={{ tabBarLabel: "Discover", icon: "compass-outline" }}
       />
       <BottomTab.Screen
-        name="cart"
+        name="explore"
         component={ExplorePage}
-        options={{ tabBarLabel: "Bag", icon: "bag-handle-outline" }}
+        options={{ tabBarLabel: "Explore", icon: "location-outline" }}
       />
       <BottomTab.Screen
-        name="favorites"
+        name="manage"
         component={ManagePage}
-        options={{ tabBarLabel: "Favorites", icon: "heart-outline" }}
+        options={{ tabBarLabel: "Manage", icon: "people-outline" }}
       />
       <BottomTab.Screen
         name="profile"
         component={ProfilePage}
-        options={{ tabBarLabel: "Home", icon: "person-outline" }}
+        options={{ tabBarLabel: "Profile", icon: "logo-buffer" }}
       />
     </BottomTab.Navigator>
   );

@@ -2,40 +2,24 @@ import { View } from "react-native";
 import styles from "./tab-bar.style";
 import TabItem from "./tab-item/tab-item.component";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { TabEntity } from "../../entity/tab.entity";
 import { Ionicons } from "@expo/vector-icons";
+import { TabEntity, TabBarOptionsWithIcon } from "../../entity/tab.entity";
 
 const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View style={styles.container}>
       {state.routes.map((route, index) => {
-        const { options } = descriptors[route.key];
+        // ép kiểu duy nhất ở đây
+        const options = descriptors[route.key].options as TabBarOptionsWithIcon;
 
-        const label =
-          options.tabBarLabel ??
-          options.title ??
-          route.name;
-
+        const label = options.tabBarLabel ?? options.title ?? route.name;
         const selected = state.index === index;
-
-        const onPress = () => {
-          if (!selected) {
-            navigation.navigate(route.name);
-          }
-        };
-
-        // ✅ Kiểm tra icon có hợp lệ không
-        const icon = (
-          "icon" in options && typeof options.icon === "string"
-            ? options.icon
-            : "alert-circle-outline" // icon fallback
-        ) as keyof typeof Ionicons.glyphMap;
 
         const tab: TabEntity = {
           key: route.key,
           name: route.name,
-          label: label as string,
-          icon,
+          label: label,
+          icon: options.icon, // ✅ không còn lỗi
           selected,
         };
 
@@ -45,7 +29,11 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
             label={tab.label}
             icon={tab.icon}
             selected={tab.selected}
-            onPress={onPress}
+            onPress={() => {
+              if (!selected) {
+                navigation.navigate(route.name);
+              }
+            }}
           />
         );
       })}

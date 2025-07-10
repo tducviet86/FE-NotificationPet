@@ -1,8 +1,11 @@
-import React from 'react'
+import React from "react";
+import { Text, View } from "react-native";
 
- const ManagePage = () => {
+const ManagePage = () => {
   return (
-    <div>ManagePage</div>
-  )
- }
- export default ManagePage
+    <View>
+      <Text>ManagePage</Text>
+    </View>
+  );
+};
+export default ManagePage;
